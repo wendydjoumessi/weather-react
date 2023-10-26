@@ -7,7 +7,7 @@ import "./Search.css";
 
 export default function Search() {
   let [city, setCity] = useState("");
-  let [temperature, setTemperature] = useState(null);
+  let [temperature, setTemperature] = useState();
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
 
@@ -18,6 +18,7 @@ export default function Search() {
       let units = "metric";
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${units}`;
       axios.get(url).then(DisplayWeather);
+      console.log(temperature);
     } else {
       alert("enter the name of a city");
     }
