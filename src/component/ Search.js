@@ -111,6 +111,7 @@ export default function Search() {
               </span>
             </div>
           </div>
+          <a href="https://github.com/wendydjoumessi/weather-react.git">open source</a>
         </div>
       </div>
     );
