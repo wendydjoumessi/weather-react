@@ -31,3 +31,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 30px;
   }
+
+  form  .link{
+    margin-left: 50px;
+  }

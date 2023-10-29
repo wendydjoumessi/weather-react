@@ -52,7 +52,6 @@ export default function Search() {
   }
 
   let form = (
-
     <form onSubmit={HandleSubmit}>
       <div className="col d-flex mb-5">
         <input
@@ -64,11 +63,12 @@ export default function Search() {
         <input
           type="submit"
           value="submit"
-          className="btn btn-submit 
-   "
+          className="btn btn-submit"
         />
       </div>
-    </form>
+      <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source</a>
+      </form>
+    
   );
 
   if (loaded) {
@@ -111,12 +111,15 @@ export default function Search() {
               </span>
             </div>
           </div>
-          <a href="https://github.com/wendydjoumessi/weather-react.git">open source</a>
+          <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source</a>
         </div>
       </div>
     );
   } else {
-    return form;
+    return(
+      {form}
+    );
+   
   }
 }
 
