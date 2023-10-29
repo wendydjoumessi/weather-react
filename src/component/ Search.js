@@ -66,10 +66,11 @@ export default function Search() {
           className="btn btn-submit"
         />
       </div>
-      <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source</a>
+        
       </form>
-    
   );
+
+  let githubLink = <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source</a>;
 
   if (loaded) {
     return (
@@ -110,16 +111,13 @@ export default function Search() {
                 </a>
               </span>
             </div>
-          </div>
+          </div> 
           <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source</a>
         </div>
       </div>
     );
   } else {
-    return(
-      {form}
-    );
-   
+    return [form , githubLink];
   }
 }
 
