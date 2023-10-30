@@ -9,7 +9,7 @@ export default function Search() {
   let [city, setCity] = useState("");
   let [temperature, setTemperature] = useState();
   const [weather, setWeather] = useState({});
-  const [loaded, setLoaded] = useState(false);
+  
 
   function HandleSubmit(event) {
     event.preventDefault();
@@ -25,7 +25,7 @@ export default function Search() {
   }
 
   function DisplayWeather(response) {
-    setLoaded(true);
+  
     setWeather({
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
@@ -70,9 +70,6 @@ export default function Search() {
       </form>
   );
 
-  let githubLink = <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source</a>;
-
- 
     return (
         
       <div className="container">
@@ -112,7 +109,7 @@ export default function Search() {
               </span>
             </div>
           </div> 
-          <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source</a>
+          <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source coded by wendy</a>
         </div>
       </div>
     );
