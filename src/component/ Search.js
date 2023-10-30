@@ -72,7 +72,7 @@ export default function Search() {
 
   let githubLink = <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source</a>;
 
-  if (loaded) {
+ 
     return (
         
       <div className="container">
@@ -116,9 +116,7 @@ export default function Search() {
         </div>
       </div>
     );
-  } else {
-    return [form , githubLink];
   }
-}
+
 
 
