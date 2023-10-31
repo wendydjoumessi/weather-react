@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { useState } from "react";
 import "./Search.css";
 
@@ -26,7 +28,7 @@ export default function WeatherUnitConvertion(prop){
                 °C
               </a>
               |
-              <a href="/" onClick={farenheitTemp}>
+              <a href="#" onClick={farenheitTemp}>
                 °F
               </a>
             </span>
@@ -41,7 +43,8 @@ export default function WeatherUnitConvertion(prop){
               {Math.round(farenheitTemp)}
             </strong>
             <span className="unit">
-              <a href="/" onClick={celsiusTemp}>
+            
+              <a href="#" onClick={celsiusTemp}>
                 °C
               </a>
               |
