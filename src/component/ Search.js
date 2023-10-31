@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-
+import { Circles } from "react-loader-spinner";
+import FormattedDate from "./FormattedDate ";
 import "./Search.css";
 
-export default function Search() {
-  let [city, setCity] = useState("");
+export default function Search(prop) {
+  let [city, setCity] = useState("Tokyo");
   let [temperature, setTemperature] = useState();
-  const [weather, setWeather] = useState({});
+  const [weather, setWeather] = useState({ready : false});
+
   
 
   function HandleSubmit(event) {
@@ -17,7 +19,6 @@ export default function Search() {
       let units = "metric";
       let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${units}`;
       axios.get(url).then(DisplayWeather);
-      console.log(temperature);
     } else {
       alert("enter the name of a city");
     }
@@ -26,11 +27,13 @@ export default function Search() {
   function DisplayWeather(response) {
   
     setWeather({
+      ready: true,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       icon: ` https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      description: response.data.weather[0].description
+      description: response.data.weather[0].description,
+      Date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -71,7 +74,7 @@ export default function Search() {
         
       </form>
   );
-
+if(weather.ready){
     return (
         
       <div className="container">
@@ -84,8 +87,8 @@ export default function Search() {
         {form}
         <div className="row">
           <div className="col-6">
-            <h3>{city}</h3>
-            <p className="date">Sunday 10:31</p>
+            <h3 className="text-capitalize">{city}</h3>
+          <p className="date"><FormattedDate date = {weather.Date}/></p>
             <ul>
               <li>Humidity: {weather.humidity} %</li>
               <li>Description : {weather.description}</li>
@@ -123,6 +126,25 @@ export default function Search() {
        
       </div>
     );
+  } 
+  else{
+    let key = "53f3bc1f5d348c44be3e3754c7185573";
+    let units = "metric";
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${prop.defaultCity}&appid=${key}&units=${units}`;
+    axios.get(url).then(DisplayWeather);
+    return (
+      <Circles
+  height="80"
+  width="80"
+  color="#4fa94d"
+  ariaLabel="circles-loading"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+/>
+    );
+    
+  }
   }
 
 
