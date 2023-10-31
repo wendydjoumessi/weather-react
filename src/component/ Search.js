@@ -9,10 +9,7 @@ import "./Search.css";
 
 export default function Search(prop) {
   let [city, setCity] = useState("Tokyo");
- 
   const [weather, setWeather] = useState({ready : false});
-
-  
 
   function HandleSubmit(event) {
     event.preventDefault();
@@ -27,7 +24,6 @@ export default function Search(prop) {
   }
 
   function DisplayWeather(response) {
-  
     setWeather({
       ready: true,
       temperature: response.data.main.temp,
@@ -43,12 +39,6 @@ export default function Search(prop) {
     event.preventDefault();
     setCity(event.target.value);
   }
-
-
-
- 
-
- 
 
   let form = (
     <form onSubmit={HandleSubmit}>
@@ -83,7 +73,7 @@ if(weather.ready){
         <div className="row">
           <div className="col-6">
             <h3 className="text-capitalize">{city}</h3>
-          <p className="date"><FormattedDate date = {weather.Date}/></p>
+            <p className="date"><FormattedDate date = {weather.Date}/></p>
             <ul>
               <li>Humidity: {weather.humidity} %</li>
               <li>Description : {weather.description}</li>
@@ -100,9 +90,7 @@ if(weather.ready){
         <p className="link">
           This project was coded by wendy and it is 
         <a href="https://github.com/wendydjoumessi/weather-react.git" > open source </a>
-        
         </p>
-       
       </div>
     );
   } 
@@ -122,7 +110,6 @@ if(weather.ready){
   visible={true}
 />
     );
-    
   }
   }
 
