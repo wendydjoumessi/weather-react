@@ -1,28 +1,39 @@
+
+.container{
+  margin: 30px auto;
+}
 .text-box {
     padding: 0 170px 0 5px;
     margin-right: 20px;
     border: 1px solid black;
     border-radius: 5px;
-    margin-left: 50px;
-    margin-top: 100px;
+    margin-left: 8px;
+    margin-top: 20px;
   }
   
   .btn-submit {
     background-color: rgb(40, 159, 206);
     color: white;
-    margin-left: 200px;
-    margin-top: 100px;
+    margin-top: 20px;
   }
   
   .temp {
     font-size: 50px;
     margin-left: 100px;
     position: relative;
-    top: -100px;
+    top: -90px;
+    left: 110px;
   }
   .unit {
     position: relative;
-    top: -120px;
+    left: 112px;
+    top: -110px;
+    line-height: 1;
+   
+  }
+  .search .image{
+    position: relative;
+    left: 120px;
   }
   
   header {
@@ -32,6 +43,39 @@
     font-size: 30px;
   }
 
-  form  .link{
-    margin-left: 50px;
+ .container .link{
+    max-width: 700px;
+    margin: 30px auto;
+   
+  }
+
+  .search{
+   border: 1px solid #dadde1;
+   padding: 14px;
+   margin: 30px auto;
+   border-radius: 4px;
+   max-width: 700px;
+  }
+
+  .search h3{
+    color: #878787;
+    line-height: 29px;
+    font-size: 24px;
+    font-weight: 20px;
+    margin: 20px 0 0 0;
+  }
+
+  .search ul{
+   margin: 0;
+   padding: 0;
+  }
+
+  .search li{
+    list-style: none;
+  }
+  .search form{
+    margin-bottom: 20px;
+  }
+   .search .date{
+    font-size: 12px;
   }

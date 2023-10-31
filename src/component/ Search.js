@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import axios from "axios";
 
 import "./Search.css";
@@ -40,6 +39,8 @@ export default function Search() {
     setCity(event.target.value);
   }
 
+
+
   function farenheitTemp(event) {
     event.preventDefault();
     let farenheitTemperature = (weather.temperature * 5) / 9 + 32;
@@ -53,17 +54,18 @@ export default function Search() {
 
   let form = (
     <form onSubmit={HandleSubmit}>
-      <div className="col d-flex mb-5">
+      <div className="d-flex mb-5">
         <input
           type="search"
           placeholder="Enter name of city"
-          className="text-box"
+          className="text-box col-9"
           onChange={HandleChange}
+          autoFocus="on"
         />
         <input
           type="submit"
           value="submit"
-          className="btn btn-submit"
+          className="btn btn-submit btn-secondary col-2"
         />
       </div>
         
@@ -73,6 +75,7 @@ export default function Search() {
     return (
         
       <div className="container">
+        <div className="search">
         <div className="row mb-5 mt-5">
         <div className="col-12">
         <header>Weather Application</header>
@@ -82,6 +85,7 @@ export default function Search() {
         <div className="row">
           <div className="col-6">
             <h3>{city}</h3>
+            <p className="date">Sunday 10:31</p>
             <ul>
               <li>Humidity: {weather.humidity} %</li>
               <li>Description : {weather.description}</li>
@@ -109,8 +113,14 @@ export default function Search() {
               </span>
             </div>
           </div> 
-          <a href="https://github.com/wendydjoumessi/weather-react.git" className="link">open source coded by wendy</a>
         </div>
+        </div>
+        <p className="link">
+          This project was coded by wendy and it is 
+        <a href="https://github.com/wendydjoumessi/weather-react.git" > open source </a>
+        
+        </p>
+       
       </div>
     );
   }

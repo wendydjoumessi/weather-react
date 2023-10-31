@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import  Search from './component/ Search';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 
