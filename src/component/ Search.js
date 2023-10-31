@@ -3,12 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Circles } from "react-loader-spinner";
 import FormattedDate from "./FormattedDate "; 
-import WeatherIcon from "./WeatherIcon";
+import WeatherIcon from "./WeatherIcon"; 
+import WeatherUnitConvertion from "./weatherUnitConvertion";
 import "./Search.css";
 
 export default function Search(prop) {
   let [city, setCity] = useState("Tokyo");
-  let [temperature, setTemperature] = useState();
+ 
   const [weather, setWeather] = useState({ready : false});
 
   
@@ -45,16 +46,9 @@ export default function Search(prop) {
 
 
 
-  function farenheitTemp(event) {
-    event.preventDefault();
-    let farenheitTemperature = (weather.temperature * 5) / 9 + 32;
-    setTemperature(Math.round(farenheitTemperature));
-  }
+ 
 
-  function celsiusTemp(event) {
-    event.preventDefault();
-    return setTemperature(weather.temperature);
-  }
+ 
 
   let form = (
     <form onSubmit={HandleSubmit}>
@@ -98,21 +92,8 @@ if(weather.ready){
           </div>
           <div className="col-6 ">
             <WeatherIcon code = {weather.icon} />
-            
-            <div>
-              <strong className="temp">
-                {Math.round(weather.temperature)}
-              </strong>
-              <span className="unit">
-                <a href="/" onClick={celsiusTemp}>
-                  °C
-                </a>
-                |
-                <a href="/" onClick={farenheitTemp}>
-                  °F
-                </a>
-              </span>
-            </div>
+
+            <WeatherUnitConvertion celsius = {Math.round(weather.temperature)}/>
           </div> 
         </div>
         </div>
