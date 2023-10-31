@@ -29,9 +29,8 @@
     left: 112px;
     top: -110px;
     line-height: 1;
-   
   }
-  .search .image{
+  .search canvas{
     position: relative;
     left: 120px;
   }

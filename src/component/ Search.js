@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import { Circles } from "react-loader-spinner";
-import FormattedDate from "./FormattedDate ";
+import FormattedDate from "./FormattedDate "; 
+import WeatherIcon from "./WeatherIcon";
 import "./Search.css";
 
 export default function Search(prop) {
@@ -31,7 +32,7 @@ export default function Search(prop) {
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      icon: ` https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       Date: new Date(response.data.dt * 1000),
     });
@@ -96,11 +97,8 @@ if(weather.ready){
             </ul>
           </div>
           <div className="col-6 ">
-            <img
-              src={weather.icon}
-              alt={weather.description}
-              className="image"
-            />
+            <WeatherIcon code = {weather.icon} />
+            
             <div>
               <strong className="temp">
                 {Math.round(weather.temperature)}
