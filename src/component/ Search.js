@@ -24,6 +24,7 @@ export default function Search(prop) {
   }
 
   function DisplayWeather(response) {
+    console.log(response)
     setWeather({
       ready: true,
       temperature: response.data.main.temp,
@@ -32,6 +33,7 @@ export default function Search(prop) {
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       Date: new Date(response.data.dt * 1000),
+      City: response.data.name
     });
   }
 
@@ -72,7 +74,7 @@ if(weather.ready){
         {form}
         <div className="row">
           <div className="col-6">
-            <h3 className="text-capitalize">{city}</h3>
+            <h3 className="text-capitalize">{weather.City}</h3>
             <p className="date"><FormattedDate date = {weather.Date}/></p>
             <ul>
               <li>Humidity: {weather.humidity} %</li>
