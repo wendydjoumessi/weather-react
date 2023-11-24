@@ -5,6 +5,7 @@ import { Circles } from "react-loader-spinner";
 import FormattedDate from "./FormattedDate "; 
 import WeatherIcon from "./WeatherIcon"; 
 import WeatherUnitConvertion from "./weatherUnitConvertion";
+import WeatherForecast from "./WeatherForecast";
 import "./Search.css";
 
 export default function Search(prop) {
@@ -24,9 +25,10 @@ export default function Search(prop) {
   }
 
   function DisplayWeather(response) {
-    console.log(response)
+   
     setWeather({
       ready: true,
+      coordinate:response.data.coord,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -36,7 +38,7 @@ export default function Search(prop) {
       City: response.data.name
     });
   }
-
+ 
   function HandleChange(event) {
     event.preventDefault();
     setCity(event.target.value);
@@ -62,8 +64,7 @@ export default function Search(prop) {
       </form>
   );
 if(weather.ready){
-    return (
-        
+    return ( 
       <div className="container">
         <div className="search">
         <div className="row mb-5 mt-5">
@@ -83,10 +84,12 @@ if(weather.ready){
             </ul>
           </div>
           <div className="col-6 ">
-            <WeatherIcon code = {weather.icon} />
-
+            <WeatherIcon code = {weather.icon} size={64}/>
             <WeatherUnitConvertion celsius = {Math.round(weather.temperature)}/>
           </div> 
+        </div>
+        <div className="WeatherForecast">
+        <WeatherForecast coordinates = {weather.coordinate} />
         </div>
         </div>
         <p className="link">

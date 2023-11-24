@@ -78,3 +78,8 @@
    .search .date{
     font-size: 12px;
   }
+
+  .WeatherForecast canvas{
+  position: relative;
+  left: 0px;
+  }
